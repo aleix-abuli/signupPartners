@@ -8,7 +8,7 @@ require('./config')(app); // This function is getting exported from the config f
 
 // Routes
 const routes = require('./routes/index.routes');
-app.use('/api', routes);
+app.use('/', routes);
 
 // Error
 require('./error-handling')(app);
