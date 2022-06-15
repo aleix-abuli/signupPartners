@@ -2,7 +2,7 @@ const  { Schema, model } = require('mongoose');
 
 const Partner = model('Partner', new Schema(
     {
-        storeName: {type: String, required: true},
+        businessName: {type: String, required: true},
         city: {type: String, required: true},
         country: {
             type: String, 
@@ -24,6 +24,7 @@ const Partner = model('Partner', new Schema(
             enum: ['restaurant','pharmacy', 'store', 'supermarket'],
             required: true
         },
+        nOfLocals: {type: String},
         locals: [{type: Schema.Types.ObjectId, ref: 'Store'}]
     }
 ));
