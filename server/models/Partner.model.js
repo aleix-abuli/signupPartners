@@ -24,8 +24,8 @@ const Partner = model('Partner', new Schema(
             enum: ['restaurant','pharmacy', 'store', 'supermarket'],
             required: true
         },
-        nOfLocals: {type: String},
-        locals: [{type: Schema.Types.ObjectId, ref: 'Store'}]
+        locals: [{type: Schema.Types.ObjectId, ref: 'Store'}],
+        bankingDetails: {type: Schema.Types.ObjectId, ref: 'Banking'}
     }
 ));
 

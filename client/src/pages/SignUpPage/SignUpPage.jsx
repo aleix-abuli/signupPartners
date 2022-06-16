@@ -15,8 +15,17 @@ export default function SignUpPage() {
         email: '',
         phone: '',
         type: '',
-        locals: '',
-        nOfLocals: ''
+        locals: ''
+    });
+
+    const [bankingDetails, setBankingDetails] = useState({
+        legalName: '',
+        taxID: '',
+        address: '',
+        bank: '',
+        accNumber: '',
+        ownerName: '',
+        ownerSurname: '',
     });
 
     function nextStage(e) {
@@ -37,9 +46,18 @@ export default function SignUpPage() {
     };
 
     function handleInputChange(e) {
+
         const { value, name } = e.currentTarget;
         setSignupData({ ...signupData, [name]: value });
+
     };
+
+    function handleSubmit(e) {
+       
+        e.preventDefault();
+
+        
+    }
 
     return (
         <>
@@ -47,8 +65,8 @@ export default function SignUpPage() {
         {(() => {
             switch(stage) {
                 case 1: return <Form1 signupData={signupData} nextStage={nextStage} previousStage={previousStage} handleInputChange={handleInputChange} />;
-                case 2: return <Form2 signupData={signupData} nextStage={nextStage} previousStage={previousStage} handleInputChange={handleInputChange} />;
-                case 3: return <Form3 signupData={signupData} nextStage={nextStage} previousStage={previousStage} handleInputChange={handleInputChange} />;
+                case 2: return <Form2 signupData={signupData} nextStage={nextStage} previousStage={previousStage} handleInputChange={handleInputChange} bankingDetails={bankingDetails} />;
+                case 3: return <Form3 signupData={signupData} nextStage={nextStage} previousStage={previousStage} handleInputChange={handleInputChange} handleSubmit={handleSubmit} />;
             }
         })()}
         </>

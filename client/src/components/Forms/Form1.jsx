@@ -1,7 +1,14 @@
 export default function Form1(props) {
 
     const { signupData, nextStage, previousStage, handleInputChange } = props;
-    const { businessName, country, city, userName, userSurname, email, phone, type, nOfLocals } = signupData;
+    const { businessName, country, city, userName, userSurname, email, phone, type } = signupData;
+
+    function goToNext(e) {
+        /* if(Object.values(signupData).every(key => key !== null && key !== "")) {
+            nextStage(e);
+        }; */
+        nextStage(e);
+    };
 
     return(
         <>
@@ -65,17 +72,7 @@ export default function Form1(props) {
                     <option value='supermarket'>Supermarket</option>
                 </select>
 
-                <label htmlFor="nOfLocals">Number of establishments</label>
-                <select name='nOfLocals' value={nOfLocals} onChange={handleInputChange} >
-                    <option></option>
-                    <option value='1'>1</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5+'>5+</option>
-                </select>
-
-                <button type="submit" onClick={nextStage}>Next</button>
+                <button type="submit" onClick={goToNext}>Next</button>
             </form>
         </>
     );
