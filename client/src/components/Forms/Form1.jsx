@@ -1,7 +1,7 @@
 export default function Form1(props) {
 
-    const { signupData, nextStage, previousStage, handleInputChange } = props;
-    const { businessName, country, city, userName, userSurname, email, phone, type } = signupData;
+    const { signupData, nextStage, previousStage, handleInputChangeData } = props;
+    const { businessName, country, city, userName, userSurname, email, password, phone, type } = signupData;
 
     function goToNext(e) {
         /* if(Object.values(signupData).every(key => key !== null && key !== "")) {
@@ -15,7 +15,7 @@ export default function Form1(props) {
             <h3>Tell us a little bit more about you and your business.</h3>
             <form>
                 <label htmlFor="country">Country<sup>*</sup></label>
-                <select name='country' value={country} onChange={handleInputChange} >
+                <select name='country' value={country} onChange={handleInputChangeData} >
                     <option></option>
                     <option value='Spain'>Spain</option>
                     <option value='Georgia'>Georgia</option>
@@ -46,25 +46,28 @@ export default function Form1(props) {
                 </select>
                 
                 <label htmlFor="city">City<sup>*</sup></label>
-                <input name='city' value={city} onChange={handleInputChange} required />
+                <input name='city' value={city} onChange={handleInputChangeData} required />
                 
                 <label htmlFor="businessName">Business name<sup>*</sup></label>
-                <input name='businessName' value={businessName} onChange={handleInputChange} required />
+                <input name='businessName' value={businessName} onChange={handleInputChangeData} required />
                 
                 <label htmlFor="userName">Name<sup>*</sup></label>
-                <input name='userName' value={userName} onChange={handleInputChange} required />
+                <input name='userName' value={userName} onChange={handleInputChangeData} required />
                 
                 <label htmlFor="userSurname">Last name<sup>*</sup></label>
-                <input name='userSurname' value={userSurname} onChange={handleInputChange} required />
+                <input name='userSurname' value={userSurname} onChange={handleInputChangeData} required />
                 
                 <label htmlFor="email">e-mail<sup>*</sup></label>
-                <input name='email' value={email} onChange={handleInputChange} required />
+                <input name='email' value={email} onChange={handleInputChangeData} required />
+                
+                <label htmlFor="password">Password<sup>*</sup></label>
+                <input name='password' value={password} onChange={handleInputChangeData} type='password' required />
                 
                 <label htmlFor="phone">Phone number<sup>*</sup></label>
-                <input name='phone' value={phone} onChange={handleInputChange} required />
+                <input name='phone' value={phone} onChange={handleInputChangeData} required />
 
                 <label htmlFor="type">Type of establishment<sup>*</sup></label>
-                <select name='type' value={type} onChange={handleInputChange} >
+                <select name='type' value={type} onChange={handleInputChangeData} >
                     <option></option>
                     <option value='restaurant'>Restaurant</option>
                     <option value='pharmacy'>Pharmacy</option>

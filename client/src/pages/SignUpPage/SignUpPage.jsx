@@ -1,21 +1,30 @@
+import axios from 'axios';
 import { useState } from "react";
 import Form1 from "../../components/Forms/Form1";
 import Form2 from "../../components/Forms/Form2";
 import Form3 from "../../components/Forms/Form3";
 
+const server = process.env.REACT_APP_API_URL;
+
 export default function SignUpPage() {
 
     const [stage, setStage] = useState(1);
+    const [checked, setChecked] = useState(false);
+    const [requestBody, setRequestBody] = useState({
+        partner: null,
+        banking: null
+    });
+
     const [signupData, setSignupData] = useState({
         businessName: '',
         city: '',
         country: '',
         userName:'',
         userSurname:'',
+        password: '',
         email: '',
         phone: '',
-        type: '',
-        locals: ''
+        type: ''
     });
 
     const [bankingDetails, setBankingDetails] = useState({
@@ -45,10 +54,21 @@ export default function SignUpPage() {
         else return;
     };
 
-    function handleInputChange(e) {
+    function handleInputChangeData(e) {
 
         const { value, name } = e.currentTarget;
         setSignupData({ ...signupData, [name]: value });
+        setRequestBody({ ...requestBody, partner: signupData});
+        console.log('THis is REQ BODY partner', requestBody.partner);
+
+    };
+
+    function handleInputChangeBanking(e) {
+
+        const { value, name } = e.currentTarget;
+        setBankingDetails({ ...bankingDetails, [name]: value });
+        setRequestBody({ ...requestBody, banking: bankingDetails});
+        console.log('THis is REQ BODY bank', requestBody.banking);
 
     };
 
@@ -56,17 +76,25 @@ export default function SignUpPage() {
        
         e.preventDefault();
 
-        
-    }
+        if(checked) {
+            axios
+            .post(`${server}/auth/signup`, requestBody)
+        };
+
+    };
+
+    function checkTerms(e) {
+        setChecked(!checked);
+    };
 
     return (
         <>
         <h1>Become a Partner</h1>
         {(() => {
             switch(stage) {
-                case 1: return <Form1 signupData={signupData} nextStage={nextStage} previousStage={previousStage} handleInputChange={handleInputChange} />;
-                case 2: return <Form2 signupData={signupData} nextStage={nextStage} previousStage={previousStage} handleInputChange={handleInputChange} bankingDetails={bankingDetails} />;
-                case 3: return <Form3 signupData={signupData} nextStage={nextStage} previousStage={previousStage} handleInputChange={handleInputChange} handleSubmit={handleSubmit} />;
+                case 1: return <Form1 signupData={signupData} nextStage={nextStage} previousStage={previousStage} handleInputChangeData={handleInputChangeData} />;
+                case 2: return <Form2 signupData={signupData} nextStage={nextStage} previousStage={previousStage} handleInputChangeBanking={handleInputChangeBanking} bankingDetails={bankingDetails} />;
+                case 3: return <Form3 signupData={signupData} nextStage={nextStage} previousStage={previousStage} handleSubmit={handleSubmit} checkTerms={checkTerms} />;
             }
         })()}
         </>

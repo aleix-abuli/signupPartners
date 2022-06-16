@@ -8,4 +8,4 @@ const Item = model('Item', new Schema(
     }
 ));
 
-module.exports = Collection;
+module.exports = Item;

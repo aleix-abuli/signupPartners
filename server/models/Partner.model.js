@@ -18,6 +18,7 @@ const Partner = model('Partner', new Schema(
         userName: {type: String, required: true},
         userSurname: {type: String, required: true},
         email: {type: String, required: true},
+        password: {type: String, required: true},
         phone: {type: String, required: true},
         type: {
             type: String,
@@ -29,4 +30,4 @@ const Partner = model('Partner', new Schema(
     }
 ));
 
-module.exports = Collection;
+module.exports = Partner;

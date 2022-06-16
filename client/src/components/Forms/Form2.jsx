@@ -1,6 +1,6 @@
 export default function Form2(props) {
 
-    const { signupData, nextStage, previousStage, handleInputChange, bankingDetails } = props;
+    const { signupData, nextStage, previousStage, handleInputChangeBanking, bankingDetails } = props;
     const { legalName, taxID, address, bank, accNumber, ownerName, ownerSurname } = bankingDetails;
     
     function goToNext(e) {
@@ -29,34 +29,34 @@ export default function Form2(props) {
             <h4>Billing details</h4>
             <form>
                 <label htmlFor="legalName">Legal entity name<sup>*</sup></label>
-                <input name='legalName' value={legalName} onChange={handleInputChange} required />
+                <input name='legalName' value={legalName} onChange={handleInputChangeBanking} required />
                 
                 <label htmlFor="taxID">Tax ID number of your legal entity<sup>*</sup></label>
-                <input name='taxID' value={taxID} onChange={handleInputChange} required />
+                <input name='taxID' value={taxID} onChange={handleInputChangeBanking} required />
                 
                 <label htmlFor="address">Billing Address<sup>*</sup></label>
-                <input name='address' value={address} onChange={handleInputChange} required />
+                <input name='address' value={address} onChange={handleInputChangeBanking} required />
 
             </form>
 
             <h4>Payment details</h4>
             <form>
                 <label htmlFor="bank">Bank name<sup>*</sup></label>
-                <input name='bank' value={bank} onChange={handleInputChange} required />
+                <input name='bank' value={bank} onChange={handleInputChangeBanking} required />
                 
                 <label htmlFor="accNumber">Account number<sup>*</sup></label>
-                <input name='accNumber' value={accNumber} onChange={handleInputChange} required />
+                <input name='accNumber' value={accNumber} onChange={handleInputChangeBanking} required />
                 
                 <label htmlFor="ownerName">Owner name<sup>*</sup></label>
-                <input name='ownerName' value={ownerName} onChange={handleInputChange} required />
+                <input name='ownerName' value={ownerName} onChange={handleInputChangeBanking} required />
                 
                 <label htmlFor="ownerSurname">Owner last name<sup>*</sup></label>
-                <input name='ownerSurname' value={ownerSurname} onChange={handleInputChange} required />
+                <input name='ownerSurname' value={ownerSurname} onChange={handleInputChangeBanking} required />
 
             </form>
 
             <input type='checkbox' name='terms' />
-            <label htmlFor="terms">I agree to the <a href="https://glovoapp.com/en/legal/privacy/">terms and conditions</a></label>
+            <label htmlFor="terms">I have read and accept the <a href="https://glovoapp.com/en/legal/privacy/">terms and conditions</a></label>
 
             <button onClick={previousStage}>Go back</button>
             <button type="submit" onClick={goToNext}>Next</button>

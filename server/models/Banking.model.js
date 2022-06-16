@@ -12,4 +12,4 @@ const Banking = model('Banking', new Schema(
     }
 ));
 
-module.exports = Collection;
+module.exports = Banking;
