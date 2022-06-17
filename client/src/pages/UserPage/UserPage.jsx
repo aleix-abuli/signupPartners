@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from "react";
 import { useParams } from 'react-router-dom';
+import NewStore from '../../components/StoreForms/NewStore';
 
 const server = process.env.REACT_APP_API_URL;
 
@@ -37,6 +38,7 @@ export default function UserPage() {
                     <p>Seems like you don't have any registered establishments yet.</p>
                 </>
                 }
+                <NewStore />
             </>
             :
             <>No partner from db</>
