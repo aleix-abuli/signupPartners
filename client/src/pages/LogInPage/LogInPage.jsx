@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useContext} from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import LogInForm from '../../components/Forms/LogInForm';
 import { AuthContext } from '../../context/auth.context';
 
@@ -9,7 +10,9 @@ const server = process.env.REACT_APP_API_URL;
 
 export default function LogInPage() {
 
-    const { storeToken, authenticateUser, logOutUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const { storeToken, authenticateUser, user, logOutUser } = useContext(AuthContext);
 
     const [logInData, setLogInData] = useState({
         email: '',
@@ -38,6 +41,12 @@ export default function LogInPage() {
         .catch((err) => console.log(err));
 
     };
+
+    useEffect(() => logOutUser(), []);
+
+    useEffect(() => {
+        if(user) navigate(`/partners/${user._id}`)
+    }, [user]);
 
     return(
         <>
