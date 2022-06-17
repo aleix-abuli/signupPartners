@@ -6,7 +6,7 @@ const saltRounds = 10;
 const Partner = require('../models/Partner.model');
 const Banking = require('../models/Banking.model');
 
-//const { isAuthenticated } = require('../middleware/jwt.middleware');
+const { isAuthenticated } = require('../middleware/jwt.middleware');
 
 router.post('/signup', (req, res) => {
     
@@ -44,6 +44,7 @@ router.post('/signup', (req, res) => {
         });
     })
     .catch(err => {res.status(500).json({ message: 'Internal Server Error' })});
+
 });
 
 
@@ -56,19 +57,19 @@ router.post('/login', (req, res, next) => {
         return;
     };
 
-    User
+    Partner
     .findOne({ email })
-    .then((foundUser) => {
+    .then((foundPartner) => {
 
-        if(!foundUser) {
-            res.status(401).json({ message: 'User not found :(' });
+        if(!foundPartner) {
+            res.status(401).json({ message: 'Partner not found. Please try again.' });
             return;
         };
 
-        if(bcrypt.compareSync(password, foundUser.password)) {
+        if(bcrypt.compareSync(password, foundPartner.password)) {
 
-            const { _id, email, username } = foundUser;
-            const payload = { _id, email, username };
+            const { _id, email, businessName } = foundPartner;
+            const payload = { _id, email, businessName };
             const authToken = jwt.sign(
                 payload,
                 process.env.TOKEN_SECRET,
@@ -77,7 +78,7 @@ router.post('/login', (req, res, next) => {
 
             res.status(200).json({ authToken });
         } else {
-            res.status(401).json({ message: 'Unable to authenticate the user' });
+            res.status(401).json({ message: 'Unable to authenticate the user.' });
         };
     })
     .catch(err => {res.status(500).json({ message: 'Internal Server Error' })});

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useEffect } from 'react';
 import { useState } from "react";
 import Form1 from "../../components/Forms/Form1";
 import Form2 from "../../components/Forms/Form2";
@@ -40,7 +41,6 @@ export default function SignUpPage() {
     function nextStage(e) {
 
         e.preventDefault();
-        console.log('CURRENT DATA: ', signupData);
 
         if(stage < 3) setStage(stage+1);
         else return;
@@ -58,8 +58,6 @@ export default function SignUpPage() {
 
         const { value, name } = e.currentTarget;
         setSignupData({ ...signupData, [name]: value });
-        setRequestBody({ ...requestBody, partner: signupData});
-        console.log('THis is REQ BODY partner', requestBody.partner);
 
     };
 
@@ -67,8 +65,6 @@ export default function SignUpPage() {
 
         const { value, name } = e.currentTarget;
         setBankingDetails({ ...bankingDetails, [name]: value });
-        setRequestBody({ ...requestBody, banking: bankingDetails});
-        console.log('THis is REQ BODY bank', requestBody.banking);
 
     };
 
@@ -79,12 +75,18 @@ export default function SignUpPage() {
         if(checked) {
             axios
             .post(`${server}/auth/signup`, requestBody)
+            .then((newUser) => console.log('NEW USER: ', newUser.data))
+            .catch((err) => console.log(err));
         };
 
     };
 
     function checkTerms(e) {
         setChecked(!checked);
+        setRequestBody({
+            partner: signupData,
+            banking: bankingDetails
+        });
     };
 
     return (
