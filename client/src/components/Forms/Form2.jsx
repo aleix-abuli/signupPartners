@@ -28,6 +28,7 @@ export default function Form2(props) {
 
             <h4>Billing details</h4>
             <form>
+                
                 <label htmlFor="legalName">Legal entity name<sup>*</sup></label>
                 <input name='legalName' value={legalName} onChange={handleInputChangeBanking} required />
                 
@@ -41,6 +42,7 @@ export default function Form2(props) {
 
             <h4>Payment details</h4>
             <form>
+
                 <label htmlFor="bank">Bank name<sup>*</sup></label>
                 <input name='bank' value={bank} onChange={handleInputChangeBanking} required />
                 

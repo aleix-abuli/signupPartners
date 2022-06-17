@@ -1,6 +1,8 @@
+import axios from 'axios';
 import React, { createContext, useState } from 'react';
 import { useEffect } from 'react';
-import authService from '../services/auth.service';
+
+const server = process.env.REACT_APP_API_URL;
 
 const AuthContext = createContext();
 
@@ -10,7 +12,7 @@ function AuthProviderWrapper(props) {
     const [isLoading, setIsLoading] = useState(true);
     const [user, setUser] = useState(null);
 
-    const storeToken = (token) => {localStorage.setItem('authToken', token)};
+    const storeToken = (token) => localStorage.setItem('authToken', token);
 
     const removeToken = () => {localStorage.removeItem('authToken')};
 
@@ -21,8 +23,8 @@ function AuthProviderWrapper(props) {
         const storedToken = getToken();
 
         if(storedToken){
-            authService
-            .verify(storedToken)
+            axios
+            .get(`${server}/auth/verify`, { headers: { Authorization: `Bearer ${storedToken}` } })
             .then(({ data }) => {
                 const user = data;
                 setIsLoggedIn(true);

@@ -13,7 +13,7 @@ export default function Form1(props) {
     return(
         <>
             <h3>Tell us a little bit more about you and your business.</h3>
-            <form>
+            <form onSubmit={goToNext} >
                 <label htmlFor="country">Country<sup>*</sup></label>
                 <select name='country' value={country} onChange={handleInputChangeData} >
                     <option></option>
@@ -75,7 +75,7 @@ export default function Form1(props) {
                     <option value='supermarket'>Supermarket</option>
                 </select>
 
-                <button type="submit" onClick={goToNext}>Next</button>
+                <button type="submit">Next</button>
             </form>
         </>
     );

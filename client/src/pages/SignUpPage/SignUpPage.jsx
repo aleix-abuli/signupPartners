@@ -11,6 +11,7 @@ export default function SignUpPage() {
 
     const [stage, setStage] = useState(1);
     const [checked, setChecked] = useState(false);
+    
     const [requestBody, setRequestBody] = useState({
         partner: null,
         banking: null
