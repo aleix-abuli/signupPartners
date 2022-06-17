@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from "react";
 import { Link, useParams } from 'react-router-dom';
+import StoreCard from '../../components/StoreCard/StoreCard';
 
 const server = process.env.REACT_APP_API_URL;
 
@@ -35,7 +36,7 @@ export default function UserPage() {
                 <>
                     <h3>Your current establishments</h3>
                     { partner.locals.map((local) => (
-                        <p>{local.name}</p>
+                        <StoreCard store={local} />
                     ))}
                     <Link to={'/stores/new'}>Add another establishment</Link>
                 </>
