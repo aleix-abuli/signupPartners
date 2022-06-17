@@ -11,6 +11,8 @@ const isAuthenticated = expressjwt({
 
 // Function used to extracts the JWT token from the request's 'Authorization' Headers
 function getTokenFromHeaders (req) {
+
+  console.log('I am in the middleware', req.headers)
   
   // Check if the token is available on the request Headers
   if (req.headers.authorization && req.headers.authorization.split(" ")[0] === "Bearer") {

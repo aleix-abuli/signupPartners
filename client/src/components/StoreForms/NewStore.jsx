@@ -23,9 +23,10 @@ export default function NewStore() {
     function handleSubmit(e) {
          
         e.preventDefault();
+        const storedToken = localStorage.getItem('authToken');
 
         axios
-        .post(`${server}/stores`, newStoreData)
+        .post(`${server}/stores`, newStoreData,  { headers: { Authorization: `Bearer ${storedToken}` } })
 
     }
 

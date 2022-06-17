@@ -33,9 +33,9 @@ export default function LogInPage() {
         axios
         .post(`${server}/auth/login`, logInData)
         .then(({ data }) => {
-            console.log(data)
+            console.log(data.authToken);
             storeToken(data.authToken);
-            authenticateUser()
+            authenticateUser();
             console.log('Logeade chique')
         })
         .catch((err) => console.log(err));
