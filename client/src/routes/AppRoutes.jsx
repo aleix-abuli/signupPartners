@@ -6,6 +6,7 @@ import UserPage from '../pages/UserPage/UserPage';
 import EditUserPage from '../pages/UserPage/EditUserPage';
 import NewStorePage from '../pages/Stores/NewStorePage';
 import StoreDetailsPage from '../pages/Stores/StoreDetailsPage';
+import EditStorePage from '../pages/Stores/EditStorePage';
 import NewItemPage from '../pages/Items/NewItemPage';
 import PrivateRoute from './PrivateRoute';
 
@@ -31,6 +32,10 @@ export default function AppRoutes() {
                 
                 <Route path='/stores/:storeId' element={<PrivateRoute />}>
                     <Route path='' element={<StoreDetailsPage />} />
+                </Route>
+                
+                <Route path='/stores/:storeId/edit' element={<PrivateRoute />}>
+                    <Route path='' element={<EditStorePage />} />
                 </Route>
 
                 <Route path='stores/:storeId/items/new' element={<PrivateRoute />}>

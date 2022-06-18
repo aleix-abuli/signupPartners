@@ -24,6 +24,7 @@ export default function UserPage() {
             if (data.locals.length > 0) setLocals(true);
         })
         .catch((err) => console.log(err));
+        
     }, []);
     
     return(

@@ -35,6 +35,18 @@ router.get('/:storeId', isAuthenticated, (req, res) => {
 
 });
 
+router.post('/:storeId/edit', isAuthenticated, (req, res) => {
+
+    const { storeId } = req.params;
+
+    Store
+    .findByIdAndUpdate(storeId, req.body, { new: true })
+    .then((updatedStore) => res.status(201).json(updatedStore))
+    .catch((err) => console.log(err));
+
+});
+
+
 router.post('/:storeId/items/new', isAuthenticated, (req, res) => {
     
     const { storeId } = req.params;
