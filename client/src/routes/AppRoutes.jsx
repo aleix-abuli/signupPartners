@@ -10,14 +10,21 @@ import EditStorePage from '../pages/Stores/EditStorePage';
 import NewItemPage from '../pages/Items/NewItemPage';
 import EditItemPage from '../pages/Items/EditItemPage';
 import PrivateRoute from './PrivateRoute';
+import AnonRoute from './AnonRoute';
 
 export default function AppRoutes() {
     return (
         <>
             <Routes>
                 <Route path='/' element={<LandingPage />} />
-                <Route path='/signup' element={<SignUpPage />} />
-                <Route path='/login' element={<LogInPage />} />
+
+                <Route path='/signup' element={<AnonRoute />} >
+                    <Route path='' element={<SignUpPage />} />
+                </Route>
+                
+                <Route path='/login' element={<AnonRoute />} >
+                    <Route path='' element={<LogInPage />} />
+                </Route>
 
                 <Route path="/partners/:id" element={<PrivateRoute />}>
                     <Route path="" element={<UserPage />} />

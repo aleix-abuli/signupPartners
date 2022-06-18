@@ -42,8 +42,6 @@ export default function LogInPage() {
 
     };
 
-    useEffect(() => logOutUser(), []);
-
     useEffect(() => {
         if(user) navigate(`/partners/${user._id}`)
     }, [user]);
