@@ -23,7 +23,9 @@ router.post('/', isAuthenticated, (req, res) => {
 
 });
 
-router.get('/:storeId', isAuthenticated, (req, res) => {
+router
+.route('/:storeId')
+.get(isAuthenticated, (req, res) => {
     
     const { storeId } = req.params;
 
@@ -33,9 +35,8 @@ router.get('/:storeId', isAuthenticated, (req, res) => {
     .then((store) => res.status(201).json(store))
     .catch((err) => console.log(err));
 
-});
-
-router.post('/:storeId/edit', isAuthenticated, (req, res) => {
+})
+.post(isAuthenticated, (req, res) => {
 
     const { storeId } = req.params;
 
@@ -44,7 +45,17 @@ router.post('/:storeId/edit', isAuthenticated, (req, res) => {
     .then((updatedStore) => res.status(201).json(updatedStore))
     .catch((err) => console.log(err));
 
-});
+})
+.delete(isAuthenticated, (req, res) => {
+
+    const { storeId } = req.params;
+
+    Store
+    .findByIdAndDelete(storeId)
+    .then((__) => console.log('store deleted'))
+    .catch((err) => console.log(err));
+    
+})
 
 
 router.post('/:storeId/items/new', isAuthenticated, (req, res) => {

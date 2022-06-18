@@ -41,7 +41,7 @@ export default function EditStorePage() {
         const storedToken = localStorage.getItem('authToken');
 
         axios
-        .post(`${server}/stores/${storeId}/edit`, storeData, { headers: { Authorization: `Bearer ${storedToken}` } })
+        .post(`${server}/stores/${storeId}`, storeData, { headers: { Authorization: `Bearer ${storedToken}` } })
         .then(({ data }) => navigate(`/stores/${data._id}`))
         .catch((err) => console.log(err))
 

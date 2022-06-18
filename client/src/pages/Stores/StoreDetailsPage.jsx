@@ -1,15 +1,20 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 import ItemCard from '../../components/ItemCard/ItemCard';
+import { useContext } from "react";
+import { AuthContext } from "../../context/auth.context";
 
 const server = process.env.REACT_APP_API_URL;
 
 export default function StoreDetailsPage() {
+
+    const { user } = useContext(AuthContext);
     
     const { storeId } = useParams();
+    const navigate = useNavigate();
 
     const [store, setStore] = useState(null);
     const [items, setItems] = useState(false);
@@ -27,6 +32,19 @@ export default function StoreDetailsPage() {
         .catch((err) => console.log(err));
 
     }, []);
+
+    function deleteStore(e) {
+
+        e.preventDefault();
+        const storedToken = localStorage.getItem('authToken');
+        navigate(`/partners/${user._id}`);
+
+        axios
+        .delete(`${server}/stores/${storeId}`, { headers: { Authorization: `Bearer ${storedToken}` } })
+        .then(() => console.log('deleted'))
+        .catch((err) => console.log(err));
+
+    };
 
     return(
         <>
@@ -50,6 +68,7 @@ export default function StoreDetailsPage() {
                 </>
                 }
                 <Link to={`/stores/${storeId}/edit`} >Edit establishment</Link>
+                <button onClick={deleteStore}>Delete establishment</button>
             </>
             :
             <Loader />
