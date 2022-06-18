@@ -22,7 +22,7 @@ export default function EditStoreForm(props) {
                 <input name='imageUrl' type='file' onChange={handleImageUpload} />
                 <img src={imageUrl} />
 
-                {loadingImage ? <p>Please wait, image loading...</p> : <button type="submit">Create establishment</button>}
+                {loadingImage ? <p>Please wait, image loading...</p> : <button type="submit">Update</button>}
             </form>
         </>
     );
