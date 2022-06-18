@@ -2,10 +2,11 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import Loader from "../../components/Loader/Loader";
-import ItemCard from '../../components/ItemCard/ItemCard';
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
+import Loader from "../../components/Loader/Loader";
+import ItemCard from '../../components/ItemCard/ItemCard';
+import DeleteButton from '../../components/DeleteButton/DeleteButton';
 
 const server = process.env.REACT_APP_API_URL;
 
@@ -46,6 +47,18 @@ export default function StoreDetailsPage() {
 
     };
 
+    function deleteItem(id) {
+
+        e.preventDefault();
+        const storedToken = localStorage.getItem('authToken');
+
+        axios
+        .delete(`${server}/items/${id}`, { headers: { Authorization: `Bearer ${storedToken}` } })
+        .then((__) => navigate(`/stores/${storeId}`))
+        .catch((err) => console.log(err));
+
+    }
+
     return(
         <>
             { store ? 
@@ -57,7 +70,10 @@ export default function StoreDetailsPage() {
                 {items ? 
                 <>
                     {store.items.map((item) => (
-                        <ItemCard item={item} />
+                        <>
+                            <ItemCard item={item} />
+                            <DeleteButton id={item._id} callback={deleteItem} />
+                        </>
                     ))}
                     <Link to={`/stores/${storeId}/items/new`}>Add more items</Link>
                 </>

@@ -54,9 +54,8 @@ router
     .findByIdAndDelete(storeId)
     .then((__) => console.log('store deleted'))
     .catch((err) => console.log(err));
-    
-})
 
+});
 
 router.post('/:storeId/items/new', isAuthenticated, (req, res) => {
     
