@@ -1,16 +1,17 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const server = process.env.REACT_APP_API_URL;
 
-export default function NewStore() {
+export default function NewItem() {
     
+    const { storeId } = useParams();
     const navigate = useNavigate();
     
-    const [newStoreData, setNewStoreData] = useState({
+    const [newItemData, setNewItemData] = useState({
         name: '',
-        address: '',
+        price: '',
         imageUrl: ''
     });
 
@@ -19,7 +20,7 @@ export default function NewStore() {
     function handleInputChange(e) {
 
         const { value, name } = e.currentTarget;
-        setNewStoreData({ ...newStoreData, [name]: value });
+        setNewItemData({ ...newItemData, [name]: value });
 
     }
 
@@ -29,8 +30,8 @@ export default function NewStore() {
         const storedToken = localStorage.getItem('authToken');
 
         axios
-        .post(`${server}/stores`, newStoreData,  { headers: { Authorization: `Bearer ${storedToken}` } })
-        .then(({ data }) => navigate(`/partners/${data._id}`))
+        .post(`${server}/stores/${storeId}/items/new`, newItemData,  { headers: { Authorization: `Bearer ${storedToken}` } })
+        .then(({ data }) => navigate(`/stores/${data._id}`))
         .catch((err) => console.log(err));
 
     }
@@ -48,12 +49,12 @@ export default function NewStore() {
         .post(`${server}/upload`, uploadData)
         .then(({ data }) => {
             setLoadingImage(false)
-            setNewStoreData({ ...newStoreData, imageUrl: data.cloudinary_url })
+            setNewItemData({ ...newItemData, imageUrl: data.cloudinary_url })
         })
         .catch(err => console.log(err));
     };
 
-    const { name, address, imageUrl } = newStoreData;
+    const { name, price, imageUrl } = newItemData;
     
     return(
         <>
@@ -61,13 +62,13 @@ export default function NewStore() {
                 <label htmlFor="name">Name<sup>*</sup></label>
                 <input name='name' value={name} onChange={handleInputChange} required />
                 
-                <label htmlFor="address">Address<sup>*</sup></label>
-                <input name='address' value={address} onChange={handleInputChange} required />
+                <label htmlFor="price">Price<sup>*</sup></label>
+                <input name='price' value={price} onChange={handleInputChange} required />
                 
-                <label htmlFor="imageUrl">Cover Image</label>
+                <label htmlFor="imageUrl">Image</label>
                 <input name='imageUrl' type='file' onChange={handleImageUpload} required />
 
-                {loadingImage ? <p>Please wait, image loading...</p> : <button type="submit">Create establishment</button>}
+                {loadingImage ? <p>Please wait, image loading...</p> : <button type="submit">Add item</button>}
             </form>
         </>
     );

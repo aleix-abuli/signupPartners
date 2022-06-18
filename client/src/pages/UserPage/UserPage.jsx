@@ -36,7 +36,7 @@ export default function UserPage() {
                 <>
                     <h3>Your current establishments</h3>
                     { partner.locals.map((local) => (
-                        <StoreCard store={local} />
+                        <StoreCard key={local._id} store={local} />
                     ))}
                     <Link to={'/stores/new'}>Add another establishment</Link>
                 </>
