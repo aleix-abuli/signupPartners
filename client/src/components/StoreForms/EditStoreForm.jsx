@@ -12,10 +12,10 @@ export default function EditStoreForm(props) {
     return(
         <>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Name<sup>*</sup></label>
+                <label htmlFor="name">Name</label>
                 <input name='name' value={name} onChange={handleInputChange} required />
                 
-                <label htmlFor="address">Address<sup>*</sup></label>
+                <label htmlFor="address">Address</label>
                 <input name='address' value={address} onChange={handleInputChange} required />
                 
                 <label htmlFor="imageUrl">Cover Image</label>

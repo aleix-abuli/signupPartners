@@ -27,6 +27,7 @@ export default function ItemCard(props) {
             <h4>{item.name}</h4>
             <p>{item.price}</p>
             <img src={item.imageUrl} style={{"width" : "100px"}} />
+            <Link to={`/edit/${item._id}`}>Edit item</Link>
             <DeleteButton callback={deleteItem} />
         </>
     );

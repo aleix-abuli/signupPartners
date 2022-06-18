@@ -8,6 +8,7 @@ import NewStorePage from '../pages/Stores/NewStorePage';
 import StoreDetailsPage from '../pages/Stores/StoreDetailsPage';
 import EditStorePage from '../pages/Stores/EditStorePage';
 import NewItemPage from '../pages/Items/NewItemPage';
+import EditItemPage from '../pages/Items/EditItemPage';
 import PrivateRoute from './PrivateRoute';
 
 export default function AppRoutes() {
@@ -40,6 +41,10 @@ export default function AppRoutes() {
 
                 <Route path='stores/:storeId/items/new' element={<PrivateRoute />}>
                     <Route path='' element={<NewItemPage />} />
+                </Route>
+                
+                <Route path='/edit/:itemId' element={<PrivateRoute />}>
+                    <Route path='' element={<EditItemPage />} />
                 </Route>
 
             </Routes>
