@@ -46,6 +46,7 @@ export default function UserPage() {
                     <Link to={'/stores/new'}>Add an establishment</Link>
                 </>
                 }
+                <Link to={`/partners/${id}/edit`}>Edit profile</Link>
             </>
             :
             <>No partner from db</>

@@ -15,6 +15,17 @@ router.get('/:id', isAuthenticated, (req, res) => {
     .then((foundPartner) => res.status(201).json(foundPartner))
     .catch((err) => console.log(err));
 
+});
+
+router.post('/:id/edit', isAuthenticated, (req, res) => {
+
+    const { id } = req.params;
+
+    Partner
+    .findByIdAndUpdate(id, req.body, { new: true })
+    .then((updatedPartner) => res.status(201).json(updatedPartner))
+    .catch((err) => console.log(err));
+
 })
 
 module.exports = router;
