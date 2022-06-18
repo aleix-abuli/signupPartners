@@ -9,7 +9,7 @@ export default function Navbar() {
 
     return(
         <nav>
-            <img src='/logo.png' className='navLogo' />
+            <Link to={'/'}><img src='/logo.png' className='navLogo' /></Link>
             {user ?
                 <div className='navDiv'>
                     <Link to={`/partners/${user._id}`} className='navLink white' >Profile</Link>
