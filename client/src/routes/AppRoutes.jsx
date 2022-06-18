@@ -3,6 +3,7 @@ import LandingPage from '../pages/LandingPage/LandingPage';
 import LogInPage from '../pages/LogInPage/LogInPage';
 import SignUpPage from '../pages/SignUpPage/SignUpPage';
 import UserPage from '../pages/UserPage/UserPage';
+import EditUserPage from '../pages/UserPage/EditUserPage';
 import NewStorePage from '../pages/Stores/NewStorePage';
 import StoreDetailsPage from '../pages/Stores/StoreDetailsPage';
 import NewItemPage from '../pages/Items/NewItemPage';
@@ -18,6 +19,10 @@ export default function AppRoutes() {
 
                 <Route path="/partners/:id" element={<PrivateRoute />}>
                     <Route path="" element={<UserPage />} />
+                </Route>
+                
+                <Route path="/partners/:id/edit" element={<PrivateRoute />}>
+                    <Route path="" element={<EditUserPage />} />
                 </Route>
 
                 <Route path='/stores/new' element={<PrivateRoute />}>
