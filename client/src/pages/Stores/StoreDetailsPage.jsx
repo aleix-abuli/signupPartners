@@ -69,7 +69,7 @@ export default function StoreDetailsPage() {
                     <Link to={`/stores/${storeId}/items/new`}>Start adding items</Link>
                 </>
                 }
-                <Link to={`/stores/${storeId}/edit`} >Edit establishment</Link>
+                <Link to={`/stores/${storeId}/edit`}>Edit establishment</Link>
                 <button onClick={deleteStore}>Delete establishment</button>
             </>
             :

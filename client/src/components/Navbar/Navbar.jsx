@@ -1,3 +1,4 @@
+import './Navbar.css';
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 import { Link } from 'react-router-dom';
@@ -8,16 +9,17 @@ export default function Navbar() {
 
     return(
         <nav>
+            <img src='/logo.png' className='navLogo' />
             {user ?
-                <>
-                <Link to={`/partners/${user._id}`}>Profile</Link>
-                <button onClick={logOutUser}>Log out</button>
-                </>
+                <div className='navDiv'>
+                    <Link to={`/partners/${user._id}`} className='navLink white' >Profile</Link>
+                    <button onClick={logOutUser} className='navLink white' >Log out</button>
+                </div>
                 :
-                <>
-                <Link to={`/login`}>Log in</Link>
-                <Link to={`/signup`}>Sign up</Link>
-                </>
+                <div className='navDiv'>
+                    <Link to={`/login`} className='navLink white' >Log in</Link>
+                    <Link to={`/signup`} className='navLink white' >Sign up</Link>
+                </div>
             }
         </nav>
     );
