@@ -1,4 +1,4 @@
-#section1 {
+.section1 {
     background-color: #ffc845;
     background-image: linear-gradient( rgba(255, 200, 69, 0.9), rgba(255, 200, 69, 0.9), rgba(255, 200, 69, 0.8), rgba(255, 200, 69, 0.5)), url('../../../public/kitchen.jpeg');
     background-repeat: no-repeat;

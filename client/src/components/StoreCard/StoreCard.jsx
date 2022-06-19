@@ -1,3 +1,4 @@
+import './StoreCard.css';
 import { Link } from "react-router-dom";
 
 export default function StoreCard(props) {
@@ -5,9 +6,12 @@ export default function StoreCard(props) {
     const { store } = props;
 
     return(
-        <>
-            <Link to={`/stores/${store._id}`}><h4>{store.name}</h4></Link>
-            <p>{store.address}</p>
-        </>
+        <div className='whiteBack containerSotreCard'>
+            <Link to={`/stores/${store._id}`}>
+                <h4 className='black'>{store.name}</h4>
+                <p className='black'>{store.address}</p>
+            </Link>
+            <img src={store.imageUrl} />
+        </div>
     );
 };

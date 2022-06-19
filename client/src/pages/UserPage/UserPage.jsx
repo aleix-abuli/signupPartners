@@ -1,3 +1,4 @@
+import './UserPage.css';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from "react";
@@ -31,15 +32,19 @@ export default function UserPage() {
         <>
             { partner ? 
             <>
-                <h1>Hello, {partner.businessName}</h1>
-                <h3>Welcome to Glovo Partners.</h3>
+                <section className='userHeader'>
+                    <h1 className='black'>Hello, {partner.businessName}</h1>
+                    <h3 className='black'>Welcome to Glovo Partners.</h3>
+                </section>
                 { locals ?
                 <>
                     <h3>Your current establishments</h3>
-                    { partner.locals.map((local) => (
-                        <StoreCard key={local._id} store={local} />
-                    ))}
-                    <Link to={'/stores/new'}>Add another establishment</Link>
+                    <div className='userLocalsDiv'>
+                        { partner.locals.map((local) => (
+                            <StoreCard key={local._id} store={local} />
+                        ))}
+                        <Link to={'/stores/new'}>Add another establishment</Link>
+                    </div>
                 </>
                 :
                 <>
