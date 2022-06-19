@@ -76,7 +76,7 @@ export default function Form1(props) {
                         <option value='supermarket'>Supermarket</option>
                     </select>
 
-                    <button type="submit" className="btnBtn white greenBack">Next</button>
+                    <button type="submit" className="formBtn btnBtn white greenBack">Next</button>
                 </form>
             </div>
         </>

@@ -1,6 +1,6 @@
 export default function Contract() {
     return(
-        <>
+        <div className="contractDiv whiteBack">
             <h4>MANIFIESTAN Y ACUERDAN:</h4>
             <p>Tanto GLOVO como el PARTNER serán denominados, conjuntamente, como las Partes y cada uno de ellos, individualmente, una Parte. Las Partes manifiestan mutuamente tener capacidad legal para obligarse y a tal efecto,</p>
             <p>I.     Que GLOVO es una compañía tecnológica con sede en Barcelona, cuya actividad principal es el desarrollo y gestión de una plataforma tecnológica mediante la que a través de una aplicación móvil o de una web (en Adelante, la <strong>APP</strong>) permite a determinadas tiendas locales de algunas ciudades ofertar sus productos a través de la misma.</p>
@@ -24,6 +24,6 @@ export default function Contract() {
             <p>1.2. Para los PARTNERS que únicamente hagan uso de los Servicios de Marketplace, GLOVO: </p>
             <p>a) No será responsable, en ningún caso, de los servicios de entrega que sean prestados por el PARTNER, junto con su propia flota de mensajeros ni del costo, la capacitación, los seguros, el equipo, los contratos, las obligaciones laborales, las obligaciones tributarias ni cualquier otro tipo de responsabilidad que pueda estar relacionada o que pueda surgir con dicha flota, que será asumida en su totalidad por el PARTNER. </p>
             <p>b) Actuará como agente de cobro de pagos por nombramiento del PARTNER, con el único fin de aceptar los pagos en nombre del PARTNER a través de la funcionalidad de procesamiento de pagos facilitada por un proveedor externo en la APP. El PARTNER acuerda que el pago realizado a GLOVO (o a un afiliado de GLOVO que actúe como agente de GLOVO) se considerará de la misma manera que el pago realizado directamente al PARTNER.  </p>
-        </>
+        </div>
     );
 };

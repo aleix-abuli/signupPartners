@@ -8,7 +8,7 @@
 
 .formClass {
     width: 90%;
-    padding: 1rem;
+    padding: 3rem 1rem;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
@@ -53,4 +53,10 @@
 .formClass button {
     font-size: 1.2rem;
     width: 8rem;
+}
+
+.formBtn {
+    font-size: 1.2rem;
+    width: 8rem;
+    margin-top: 1.5rem;
 }
