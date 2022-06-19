@@ -11,7 +11,48 @@
     justify-content: center;
 }
 
-#section1 p {
+.section1 p {
     text-align: center;
+}
+
+.landingTextDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 80%;
+}
+
+.landingTextDiv h1 {
+    text-align: center;
+}
+
+.whyGlovoSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.whyGlovoSection h1 {
+    padding: 3rem 0 2rem 0;
+}
+
+.benefitsFlex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3rem;
+}
+
+.benefitCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    text-align: center;
+    margin: 2rem;
+}
+
+.benefitCard img {
+    width: 200px;
 }
