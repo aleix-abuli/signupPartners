@@ -1,3 +1,4 @@
+import '../../Form.css';
 import axios from 'axios';
 import { useContext} from 'react';
 import { useEffect } from 'react';
@@ -47,8 +48,8 @@ export default function LogInPage() {
     }, [user]);
 
     return(
-        <>
+        <div className='formContainer tigerBack fullHeight'>
             <LogInForm data={logInData} handleInputChange={handleInputChange} handleSubmit={handleSubmit} />
-        </>
+        </div>
     );
 };

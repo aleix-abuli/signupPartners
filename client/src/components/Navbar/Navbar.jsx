@@ -13,7 +13,7 @@ export default function Navbar() {
             {user ?
                 <div className='navDiv'>
                     <Link to={`/partners/${user._id}`} className='navLink white' >Profile</Link>
-                    <button onClick={logOutUser} className='navLink white' >Log out</button>
+                    <button onClick={logOutUser} className='navBtn green tigerBack' >Log out</button>
                 </div>
                 :
                 <div className='navDiv'>

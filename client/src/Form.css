@@ -60,3 +60,7 @@
     width: 8rem;
     margin-top: 1.5rem;
 }
+
+.fullHeight {
+    min-height: 80vh;
+}

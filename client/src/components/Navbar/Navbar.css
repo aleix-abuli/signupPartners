@@ -19,4 +19,12 @@ nav {
     display: flex;
     width: 8.5rem;
     justify-content: space-between;
+    align-items: center;
+}
+
+.navBtn {
+    padding: 0.5rem;
+    border-radius: 10px;
+    bordeR: 0;
+    font-weight: 700;
 }
