@@ -1,3 +1,4 @@
+import '../../Form.css';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from "react";
@@ -49,11 +50,13 @@ export default function EditUserPage() {
     return(
         <>
             <h2>Edit profile</h2>
+            <div className='formContainer tigerBack'>
             { partnerData ? 
             <EditPartnerForm partner={partnerData} handleInputChange={handleInputChange} handleSubmit={handleSubmit} />
             :
             <Loader />
             }
+            </div>
         </>
     );
 };

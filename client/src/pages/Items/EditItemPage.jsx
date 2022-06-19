@@ -71,11 +71,13 @@ export default function NewItemPage() {
             { itemData ?
             <>
                 <h2>Edit item</h2>
-                <EditItem
-                itemData={itemData} loadingImage={loadingImage}
-                handleInputChange={handleInputChange}
-                handleSubmit={handleSubmit}
-                handleImageUpload={handleImageUpload} />
+                <div className='formContainer tigerBack' style={{'min-height': '70vh'}} >
+                    <EditItem
+                    itemData={itemData} loadingImage={loadingImage}
+                    handleInputChange={handleInputChange}
+                    handleSubmit={handleSubmit}
+                    handleImageUpload={handleImageUpload} />
+                </div>
             </>
             :
             <Loader />

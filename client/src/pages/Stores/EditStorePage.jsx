@@ -1,3 +1,4 @@
+import '../../Form.css';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from "react";
@@ -62,16 +63,18 @@ export default function EditStorePage() {
             setStoreData({ ...storeData, imageUrl: data.cloudinary_url })
         })
         .catch(err => console.log(err));
-    }
+    };
     
     return(
         <>
             <h2>Edit profile</h2>
-            { storeData ? 
-            <EditStoreForm store={storeData} loadingImage={loadingImage} handleInputChange={handleInputChange} handleSubmit={handleSubmit} handleImageUpload={handleImageUpload} />
-            :
-            <Loader />
-            }
+            <div className='formContainer tigerBack' style={{'min-height': '70vh'}} >
+                { storeData ? 
+                <EditStoreForm store={storeData} loadingImage={loadingImage} handleInputChange={handleInputChange} handleSubmit={handleSubmit} handleImageUpload={handleImageUpload} />
+                :
+                <Loader />
+                }
+            </div>
         </>
     );
 };

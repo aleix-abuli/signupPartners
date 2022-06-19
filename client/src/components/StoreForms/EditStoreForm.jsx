@@ -11,7 +11,7 @@ export default function EditStoreForm(props) {
     
     return(
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='formClass'>
                 <label htmlFor="name">Name</label>
                 <input name='name' value={name} onChange={handleInputChange} required />
                 
@@ -20,9 +20,9 @@ export default function EditStoreForm(props) {
                 
                 <label htmlFor="imageUrl">Cover Image</label>
                 <input name='imageUrl' type='file' onChange={handleImageUpload} />
-                <img src={imageUrl} />
+                <img src={imageUrl} style={{ 'height' : '100px' }} />
 
-                {loadingImage ? <p>Please wait, image loading...</p> : <button type="submit">Update</button>}
+                {loadingImage ? <p>Please wait, image loading...</p> : <button type="submit"  className="formBtn btnBtn white greenBack" >Update</button>}
             </form>
         </>
     );

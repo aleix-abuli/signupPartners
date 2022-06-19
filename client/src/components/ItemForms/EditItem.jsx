@@ -9,7 +9,7 @@ export default function EditItem(props) {
     
     return(
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='formClass'>
                 <label htmlFor="name">Name<sup>*</sup></label>
                 <input name='name' value={name} onChange={handleInputChange} required />
                 
@@ -18,9 +18,10 @@ export default function EditItem(props) {
                 
                 <label htmlFor="imageUrl">Image</label>
                 <input name='imageUrl' type='file' onChange={handleImageUpload} />
-                <img src={imageUrl} />
 
-                {loadingImage ? <p>Please wait, image loading...</p> : <button type="submit">Edit item</button>}
+                {imageUrl && <img src={imageUrl} style={{ 'height' : '100px' }} />}
+
+                {loadingImage ? <p>Please wait, image loading...</p> : <button type="submit" className="formBtn btnBtn white greenBack" >Edit item</button>}
             </form>
         </>
     );

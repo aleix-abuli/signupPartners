@@ -58,7 +58,7 @@ export default function NewItem() {
     
     return(
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='formClass' >
                 <label htmlFor="name">Name<sup>*</sup></label>
                 <input name='name' value={name} onChange={handleInputChange} required />
                 
@@ -68,7 +68,9 @@ export default function NewItem() {
                 <label htmlFor="imageUrl">Image</label>
                 <input name='imageUrl' type='file' onChange={handleImageUpload} required />
 
-                {loadingImage ? <p>Please wait, image loading...</p> : <button type="submit">Add item</button>}
+                {imageUrl && <img src={imageUrl} style={{ 'height' : '100px' }} />}
+
+                {loadingImage ? <p>Please wait, image loading...</p> : <button type="submit" className="formBtn btnBtn white greenBack" >Add item</button>}
             </form>
         </>
     );
