@@ -1,3 +1,4 @@
+import './StoreDetailsPage.css';
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -50,27 +51,41 @@ export default function StoreDetailsPage() {
         <>
             { store ? 
             <>
-                <img src={store.imageUrl} />
-                <h2>{store.name}</h2>
-                <p>{store.address}</p>
-                <h3>Items:</h3>
-                {items ? 
-                <>
-                    {store.items.map((item) => (
-                        <>
-                            <ItemCard key={item._id} item={item} storeId={storeId} />
-                        </>
-                    ))}
-                    <Link to={`/stores/${storeId}/items/new`}>Add more items</Link>
-                </>
-                :
-                <>
-                    <p>This establishment doesn't have any items yet.</p>
-                    <Link to={`/stores/${storeId}/items/new`}>Start adding items</Link>
-                </>
-                }
-                <Link to={`/stores/${storeId}/edit`}>Edit establishment</Link>
-                <button onClick={deleteStore}>Delete establishment</button>
+                <img src={store.imageUrl} className='coverImage'/>
+                <section className='basicStoreInfo'>
+                    <div>
+                        <h2 className='black'>{store.name}</h2>
+                        <p className='black'>📍 {store.address}</p>
+                        <div className='profileLinksDiv'>
+                            <Link to={`/stores/${storeId}/edit`} className='greenBack white'>Edit</Link>
+                            <button onClick={deleteStore} className='whiteBack black'>Delete</button>
+                        </div>
+                    </div>
+                </section>
+                <section className='sotreItems tigerBack'>
+                    <h3 className='black'>{store.name}'s Items</h3>
+                    {items ? 
+                    <div className='itemsList'>
+                        {store.items.map((item) => (
+                            <>
+                                <ItemCard key={item._id} item={item} storeId={storeId} />
+                            </>
+                        ))}
+                        <Link to={`/stores/${storeId}/items/new`} className='linkItemCard whiteBack'>
+                            <h1>+</h1>
+                            <p>Add a new item</p>
+                        </Link>
+                    </div>
+                    :
+                    <>
+                        <p>This establishment doesn't have any items yet.</p>
+                        <Link to={`/stores/${storeId}/items/new`} className='linkItemCard whiteBack'>
+                            <h1>+</h1>
+                            <p>Start adding items</p>
+                        </Link>
+                    </>
+                    }
+                </section>
             </>
             :
             <Loader />

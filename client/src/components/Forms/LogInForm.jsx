@@ -12,7 +12,7 @@ export default function LogInForm(props) {
                 <input name='email' value={email} onChange={handleInputChange} required />
                 
                 <label htmlFor="password">Password</label>
-                <input name='password' value={password} onChange={handleInputChange} required />
+                <input name='password' value={password} onChange={handleInputChange} type='password' required />
 
                 <button type="submit" className="formBtn btnBtn white greenBack">Log In</button>
             </form>

@@ -1,3 +1,4 @@
+import './ItemCard.css';
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import DeleteButton from '../DeleteButton/DeleteButton';
@@ -23,12 +24,14 @@ export default function ItemCard(props) {
     };
 
     return(
-        <>
-            <h4>{item.name}</h4>
-            <p>{item.price}</p>
-            <img src={item.imageUrl} style={{"width" : "100px"}} />
-            <Link to={`/edit/${item._id}`}>Edit item</Link>
-            <DeleteButton callback={deleteItem} />
-        </>
+        <div className='containerItemCard whiteBack'>
+            <h4 className='black'>{item.name}</h4>
+            <p className='black'>{item.price}</p>
+            <img src={item.imageUrl}/>
+            <div className='itemCardLinkDiv'>
+                <Link to={`/edit/${item._id}`} className='white greenBack'>Edit</Link>
+                <DeleteButton callback={deleteItem} />
+            </div>
+        </div>
     );
 };
