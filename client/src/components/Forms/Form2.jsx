@@ -14,16 +14,20 @@ export default function Form2(props) {
 
     return(
         <>
-            <h3>Our proposal</h3>
-            <h4>Terms of our collaboration</h4>
-            <p>You are a step closer to join Glovo! Together we’ll increase your sales and reach new customers. Currently we are proposing you:</p>
+            <div className='proposalText'>
+                <div>
+                    <h3>Our proposal</h3>
+                    <h4>Terms of our collaboration</h4>
+                    <p>You are a step closer to join Glovo! Together we’ll increase your sales and reach new customers. Currently we are proposing you:</p>
+                </div>
+            </div>
             <div className='proposalContainer'>
-                <div className='proposalDiv tigerBack'>
+                <div className='proposalDiv whiteBack'>
                     <p className='proposalHeader'>Activation fee</p>
                     <h3>0€</h3>
                     <p>One time payment</p>
                 </div>
-                <div className='proposalDiv tigerBack'>
+                <div className='proposalDiv whiteBack'>
                     <p className='proposalHeader'>Platform + Courier Access fees</p>
                     <h3>30%</h3>
                     <p>For every order</p>

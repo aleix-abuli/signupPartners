@@ -33,11 +33,14 @@
 .itemCardLinkDiv a {
     text-decoration: none;
     padding: 0.5rem 2rem;
+    font-weight: 700;
     border-radius: 30px;
 }
 
 .itemCardLinkDiv button {
     border: 0;
     padding: 0.5rem 2rem;
+    font-weight: 700;
     border-radius: 30px;
+    background-color: #e2e2e2;
 }

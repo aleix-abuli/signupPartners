@@ -49,8 +49,8 @@ export default function EditUserPage() {
     
     return(
         <>
-            <h2>Edit profile</h2>
             <div className='formContainer tigerBack'>
+            <h2>Edit profile</h2>
             { partnerData ? 
             <EditPartnerForm partner={partnerData} handleInputChange={handleInputChange} handleSubmit={handleSubmit} />
             :

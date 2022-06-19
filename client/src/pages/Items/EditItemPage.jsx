@@ -70,8 +70,8 @@ export default function NewItemPage() {
         <>
             { itemData ?
             <>
-                <h2>Edit item</h2>
-                <div className='formContainer tigerBack' style={{'min-height': '70vh'}} >
+                <div className='formContainer tigerBack' style={{'min-height': '80vh'}} >
+                    <h2>Edit item</h2>
                     <EditItem
                     itemData={itemData} loadingImage={loadingImage}
                     handleInputChange={handleInputChange}

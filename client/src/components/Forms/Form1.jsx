@@ -12,8 +12,8 @@ export default function Form1(props) {
 
     return(
         <>
-            <h3>Tell us a little bit more about you and your business.</h3>
             <div className="formContainer tigerBack">
+            <p>Tell us a little bit more about you and your business.</p>
                 <form onSubmit={goToNext} className='formClass'>
                     <label htmlFor="country">Country<sup>*</sup></label>
                     <select name='country' value={country} onChange={handleInputChangeData} >
@@ -61,7 +61,7 @@ export default function Form1(props) {
                     <label htmlFor="email">e-mail<sup>*</sup></label>
                     <input name='email' value={email} onChange={handleInputChangeData} required />
                     
-                    <label htmlFor="password">Password<sup>*</sup></label>
+                    <label htmlFor="password">Password (8 characters or more)<sup>*</sup></label>
                     <input name='password' value={password} onChange={handleInputChangeData} type='password' required />
                     
                     <label htmlFor="phone">Phone number<sup>*</sup></label>

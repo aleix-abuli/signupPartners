@@ -6,6 +6,12 @@
     padding-bottom: 5rem;
 }
 
+.formContainer h2 {
+    text-align: center;
+    padding-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
 .formClass {
     width: 90%;
     padding: 3rem 1rem;
@@ -63,4 +69,19 @@
 
 .fullHeight {
     min-height: 80vh;
+}
+
+.formBack>h1 {
+    text-align: center;
+    padding-top: 1.5rem;
+}
+
+.formBack>h3{
+    text-align: center;
+    padding-top: 1.5rem;
+}
+
+.formBack p {
+    text-align: center;
+    margin: 0 0 1rem 0;
 }

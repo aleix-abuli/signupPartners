@@ -91,7 +91,7 @@ export default function SignUpPage() {
     };
 
     return (
-        <>
+        <div className='tigerBack formBack'>
         <h1>Become a Partner</h1>
         {(() => {
             switch(stage) {
@@ -100,6 +100,6 @@ export default function SignUpPage() {
                 case 3: return <Form3 signupData={signupData} nextStage={nextStage} previousStage={previousStage} handleSubmit={handleSubmit} checkTerms={checkTerms} />;
             }
         })()}
-        </>
+        </div>
     );
 };
